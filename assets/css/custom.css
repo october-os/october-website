@@ -1,0 +1,7 @@
+p {
+    text-align: justify;
+}
+
+#appearance-switcher, #appearance-switcher-mobile {
+  display: none;
+}
