@@ -15,5 +15,5 @@ A default pre-configured desktop environment composed of Hyprland, a Quickshell 
 The full base packages list is available [here](https://github.com/october-os/october-iso/tree/main/docs/packages).
 
 A nice perk is that the desktop environment's colors automatically adapt to your wallpaper:
-![](img/screenshot.png)
-![](img/screenshot2.png)
+![](/img/docs/introduction/screenshot1.png)
+![](/img/docs/introduction/screenshot2.png)

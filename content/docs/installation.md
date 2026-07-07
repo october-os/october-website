@@ -8,7 +8,7 @@ Once booted up, you will be able to use the `october-installer` command to start
 
 If using Wi-Fi, you will need to connect using [iwctl](https://wiki.archlinux.org/title/Iwd#iwctl) first.
 
-![](img/installer.png)
+![](/img/docs/installation/installer.png)
 
 For example: `october-installer -json config.json`
 
@@ -83,4 +83,4 @@ The easiest way to import your JSON configuration into the live ISO is to host i
 
 ### Installation
 
-![](img/installed.png)
+![](/img/docs/installation/installed.png)

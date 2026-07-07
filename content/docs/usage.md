@@ -44,4 +44,4 @@ weight = 5
 - Manage wallpapers
 - Manage the profile picture
 
-![](img/octoberctl.png)
+![](/img/docs/usage/octoberctl.png)
