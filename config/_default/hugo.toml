@@ -1,6 +1,6 @@
 # -- Site Configuration --
 
-baseURL = "https://localhost:1313/"
+baseURL = "https://october-os.github.io/october-website"
 locale = "en"
 defaultContentLanguage = "en"
 
