@@ -1,6 +1,11 @@
 ---
 title: "Docs"
 orderByWeight: true
+cascade:
+    showDate: false
+    invertPagination: true
+    showReadingTime: true
+    showWordCount: true
 ---
 
-PLACEHOLDER
+The official documentation for installing, configuring and using October Linux.

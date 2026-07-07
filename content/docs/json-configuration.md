@@ -1,12 +1,57 @@
 +++
-draft = false
-showDate = false
 title = 'JSON Configuration'
-weight = 3
+weight = 2
 +++
 
-This is all small documentation about how to build the JSON payload that contains the configuration for the new 
-October Linux installation. We'll go through each section and explain what they do and how to build it.
+October Linux provides an installer that takes a JSON configuration file to deploy your system.
+The JSON defines things like disk partitioning, users and extra packages you want installed.
+
+This page goes over all you need to know to prepare your JSON configuration to deploy a fully operational system.
+
+## Full JSON example
+
+```json
+{
+  "drives" : [
+    {
+      "path": "/dev/xyz",
+      "append": true/false,
+      "partitions": [
+        {
+          "size": {
+            "amount": 1234,
+            "unit": "MiB/GiB/etc.",
+            "takeRemaining": true/false
+          },
+          "fileSystem": "btrfs/ext4",
+          "partitionType": "gpt partition type (guid)",
+          "mountPoint": "/absolute/path/to/directory"
+        }
+      ]
+    }
+  ],
+  "users": [
+    {
+      "username": "[username]",
+      "password": "[password]",
+      "homepath": "[path to home]",
+      "sudoer": true
+    }
+  ],
+  "mirrorCountries": [
+    "list of countries"
+  ],
+  "timezone": "[user timezone]",
+  "locale": "[user locale]",
+  "hostname": "[user hostname]",
+  "rootPassword": "[root password]",
+  "bestEffortGPU": true,
+  "extraPackages": {
+    "officialRepositories": ["package1", "package2"],
+    "aur": ["package1", "package2"]
+  }
+}
+```
 
 ## Drives
 
@@ -160,48 +205,3 @@ This part contains all the more "general" configuration of the installation.
 | extraPackages | object | The extra packages to be installed on the system. | No |
 | extraPackages.officialRepositories | array of strings | The extra packages to be installed from the official Arch Linux repositories | No |
 | extraPackages.aur | array of strings | The extra packages to be installed from the Arch User Repository (AUR) | No |
-
-## Full JSON example
-
-```json
-{
-  "drives" : [
-    {
-      "path": "/dev/xyz",
-      "append": true/false,
-      "partitions": [
-        {
-          "size": {
-            "amount": 1234,
-            "unit": "MiB/GiB/etc.",
-            "takeRemaining": true/false
-          },
-          "fileSystem": "btrfs/ext4",
-          "partitionType": "gpt partition type (guid)",
-          "mountPoint": "/absolute/path/to/directory"
-        }
-      ]
-    }
-  ],
-  "users": [
-    {
-      "username": "[username]",
-      "password": "[password]",
-      "homepath": "[path to home]",
-      "sudoer": true
-    }
-  ],
-  "mirrorCountries": [
-    "list of countries"
-  ],
-  "timezone": "[user timezone]",
-  "locale": "[user locale]",
-  "hostname": "[user hostname]",
-  "rootPassword": "[root password]",
-  "bestEffortGPU": true,
-  "extraPackages": {
-    "officialRepositories": ["package1", "package2"],
-    "aur": ["package1", "package2"]
-  }
-}
-```

@@ -1,11 +1,6 @@
 # -- Theme Options --
-# These options control how the theme functions and allow you to
-# customise the display of your website.
-#
-# Refer to the theme docs for more details about each of these parameters.
-# https://blowfish.page/docs/configuration/#theme-parameters
 
-colorScheme = "princess"
+colorScheme = "october"
 defaultAppearance = "dark" # valid options: light or dark
 autoSwitchAppearance = false
 
@@ -16,11 +11,8 @@ enableStyledScrollbar = true
 
 mainSections = ["releases"]
 
-defaultBackgroundImage = "img/mylene2401-pink-clouds-8764532_1920.jpg" # used as default for background images
-#defaultBackgroundImage = "img/bg.jpg" # used as default for background images
-#defaultBackgroundImage = "img/wallpaper3.jpg" # used as default for background images
-#defaultFeaturedImage = "img/wallpaper.png" # used as default for featured images in all articles
-# defaultSocialImage = "/android-chrome-512x512.png" # used as default for social media sharing (Open Graph and Twitter)
+defaultBackgroundImage = "img/background.jpg" # used as default for background images
+defaultSocialImage = "/android-chrome-512x512.png" # used as default for social media sharing (Open Graph and Twitter)
 hotlinkFeatureImage = false
 
 highlightCurrentMenuArea = true
@@ -44,50 +36,43 @@ metaDescriptionOrder = ["summary", "description", "site"] # Controls the fallbac
 
 [homepage]
   layout = "background" # valid options: page, profile, hero, card, background, custom
-  homepageImage = "img/mylene2401-pink-clouds-8764532_1920.jpg" # used in: hero, and card
+  homepageImage = "img/background.jpg" # used in: hero, and card
   showRecent = true
-  showRecentItems = 5
+  showRecentItems = 6
   showMoreLink = true
-  showMoreLinkDest = "/releases/"
+  showMoreLinkDest = "/releases"
   cardView = true
   cardViewScreenWidth = false
   layoutBackgroundBlur = true # only used when layout equals background
-  disableHeroImageFilter = true # only used when layout equals hero
 
 [article]
-  showDate = true
+  showDate = false
   showViews = false
   showLikes = false
   showDateOnlyInArticle = false
   showDateUpdated = false
-  showAuthor = true
-  # showAuthorBottom = false
+  showAuthor = false
   showHero = true
   heroStyle = "thumbAndBackground" # valid options: basic, big, background, thumbAndBackground
   layoutBackgroundBlur = true # only used when heroStyle equals background or thumbAndBackground
   layoutBackgroundHeaderSpace = true # only used when heroStyle equals background
   showBreadcrumbs = true
-  showDraftLabel = true
+  showDraftLabel = false
   showEdit = false
-  # editURL = "https://github.com/username/repo/"
-  editAppendPath = true
-  seriesOpened = false
   showHeadingAnchors = true
   showPagination = true
   invertPagination = false
-  showReadingTime = true
+  showReadingTime = false
   showTableOfContents = true
-  # showRelatedContent = false
-  # relatedContentLimit = 3
-  showTaxonomies = false # Enable the display of taxonomies for the related article.
+  showRelatedContent = true
+  relatedContentLimit = 6
+  showTaxonomies = true # Enable the display of taxonomies for the related article.
   showCategories = true # These will show if showTaxonomies is true.
   showTags = true # These will show if showTaxonomies is true.
   showCategoriesInSecondaryColor = false # This will change the color of category badges, so the user can better distinguish between the two. Only if showTaxonomies is true.
   showAuthorsBadges = false
-  showWordCount = true
-  # sharingLinks = [ "linkedin", "twitter", "bluesky", "mastodon", "reddit", "pinterest", "facebook", "email", "whatsapp", "telegram", "line"]
+  showWordCount = false
   showZenMode = false
-  # externalLinkForceNewTab = false # disable to allow external links in the same tab (defaults to true)
 
 [list]
   showHero = true
@@ -96,10 +81,6 @@ metaDescriptionOrder = ["summary", "description", "site"] # Controls the fallbac
   layoutBackgroundHeaderSpace = true # only used when heroStyle equals background
   showBreadcrumbs = false
   showSummary = false
-  showViews = false
-  showLikes = false
-  showTableOfContents = true
-  showCards = false
   orderByWeight = false
   groupByYear = false
   cardView = true
@@ -133,48 +114,3 @@ metaDescriptionOrder = ["summary", "description", "site"] # Controls the fallbac
   groupByYear = false
   cardView = false
   cardViewScreenWidth = false
-
-[firebase]
-  # apiKey = "XXXXXX"
-  # authDomain = "XXXXXX"
-  # projectId = "XXXXXX"
-  # storageBucket = "XXXXXX"
-  # messagingSenderId = "XXXXXX"
-  # appId = "XXXXXX"
-  # measurementId = "XXXXXX"
-
-[fathomAnalytics]
-  # site = "ABC12345"
-  # domain = "llama.yoursite.com"
-
-[umamiAnalytics]
-  # websiteid = "ABC12345"
-  # domain = "llama.yoursite.com"
-  # dataDomains = "yoursite.com,yoursite2.com"
-  # scriptName = ""
-  # enableTrackEvent = true
-
-[selineAnalytics]
-  # token = "XXXXXX"
-  # enableTrackEvent = true
-
-[buymeacoffee]
-  # identifier = ""
-  # globalWidget = true
-  # globalWidgetMessage = "Hello"
-  # globalWidgetColor = "#FFDD00"
-  # globalWidgetPosition = "right"
-
-[verification]
-  # google = ""
-  # bing = ""
-  # pinterest = ""
-  # yandex = ""
-  # fediverse = ""
-
-[rssnext]
-  # feedId = ""
-  # userId = ""
-
-[advertisement]
-  # adsense = ""

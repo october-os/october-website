@@ -1,5 +1,10 @@
 ---
-title: "Docs"
+title: "Releases"
+groupByYear: true
+cascade:
+    showDate: true
+    showReadingTime: true
+    showWordCount: true
 ---
 
-PLACEHOLDER
+The list of October Linux releases.
