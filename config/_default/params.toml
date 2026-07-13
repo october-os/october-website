@@ -12,7 +12,7 @@ enableStyledScrollbar = true
 mainSections = ["releases"]
 
 defaultBackgroundImage = "img/background.jpg" # used as default for background images
-defaultSocialImage = "/android-chrome-512x512.png" # used as default for social media sharing (Open Graph and Twitter)
+defaultSocialImage = "/logo.png" # used as default for social media sharing (Open Graph and Twitter)
 hotlinkFeatureImage = false
 
 highlightCurrentMenuArea = true
