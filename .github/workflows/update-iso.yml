@@ -1,7 +1,7 @@
 name: Update the ISO version
 
 on:
-  repository-dispatch:
+  repository_dispatch:
     types: [iso-updated]
 
 env:
@@ -17,8 +17,9 @@ jobs:
       - name: Update latest release metadata
         run: |
           url=$(curl -s https://api.github.com/repos/october-os/october-iso/releases/latest | jq -r '.assets[0].browser_download_url')
-
           version=$(curl -s https://api.github.com/repos/october-os/october-iso/releases/latest | jq -r '.tag_name')
+          version="${version#v}"
+          date=$(curl -s https://api.github.com/repos/october-os/october-iso/releases/latest | jq -r '.published_at')
 
           jq \
             --arg url "$url" \
@@ -27,6 +28,17 @@ jobs:
             data/latest_release.json > data/latest_release.json.tmp 
             
           mv data/latest_release.json.tmp data/latest_release.json
+
+          cat > "content/releases/${version_number}.md" <<EOF
+          +++
+          date = "$date"
+          title = "v$version"
+          +++
+
+          ## ISO
+
+          ## Installer
+          EOF
 
           echo "VERSION=$version" >> "$GITHUB_ENV"
 
