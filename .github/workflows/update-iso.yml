@@ -1,0 +1,42 @@
+name: Update the ISO version
+
+on:
+  repository-dispatch:
+    types: [iso-updated]
+
+env:
+  GITHUB_TOKEN: ${{ github.token }}
+
+jobs:
+  update-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Update latest release metadata
+        run: |
+          url=$(curl -s https://api.github.com/repos/october-os/october-iso/releases/latest | jq -r '.assets[0].browser_download_url')
+
+          version=$(curl -s https://api.github.com/repos/october-os/october-iso/releases/latest | jq -r '.tag_name')
+
+          jq \
+            --arg url "$url" \
+            --arg version "$version" \
+            '.url = $url | .version = $version' \
+            data/latest_release.json > data/latest_release.json.tmp 
+            
+          mv data/latest_release.json.tmp data/latest_release.json
+
+          echo "VERSION=$version" >> "$GITHUB_ENV"
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v8
+        with:
+          branch: update/latest-release
+          delete-branch: true
+          title: "Update latest release to ${{ env.VERSION }}"
+          commit-message: "update latest release"
+          body: |
+            Automatically updated `data/latest_release.json`
+            to the latest October ISO release.
